@@ -1,29 +1,11 @@
-#container {
+.container {
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
-.divContainer {
-    display: flex;
-    flex-wrap: wrap;
-    flex-basis: 440px;
-}
-
-.divContainer > div {
-    border: 4px solid black;
-    padding: 9px;
-}
-
-
-
-.secondContainer {
-    display: flex;
-    flex-wrap: wrap;
-    flex-basis: 440px;
-}
-
-.secondContainer > div {
-    border: 4px solid black;
-    padding: 9px;
+.grid-box {
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    background-color: white
 }
