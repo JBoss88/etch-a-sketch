@@ -1,25 +1,28 @@
-const section = document.querySelector("section");
-const container = document.querySelector("#container");
-const divContainer = document.querySelector('.divContainer');
-const btnClear = document.querySelector('button');
+const sizeOfGrid = 16;
+const container = document.querySelector('.container');
 
-for (let i = 0; i < 256; i++) {
-    const divs = document.createElement('div');
-    divs.addEventListener('mouseover', () => {
-        divs.style.backgroundColor = 'orange';
-    });
-    divContainer.append(divs);
+const createGrid = (amtOfGrids) => {
+    for (let i = 0; i < amtOfGrids; i++) {
+        const row = document.createElement('div');
+        row.classList.add('grid-row');
+
+        for (let j = 0; j < amtOfGrids; j++) {
+            const gridBox = document.createElement('div');
+            gridBox.classList.add('grid-box');
+            row.appendChild(gridBox);
+            gridBox.addEventListener('mouseover', () => {
+                gridBox.style.backgroundColor = 'orange';
+            });
+        }
+        container.appendChild(row);
+    }
+}  
+createGrid(sizeOfGrid);
+
+
+
+
+function asksUser() {
+    const aNumber = Number(window.prompt('What grid size would you like?', ''));
+    console.log(aNumber)
 }
-
-function getResult() {
-    btnClear.addEventListener('click', () => {
-        const result = prompt('What grid size would you like?');
-        divContainer.remove('div');
-        const secondContainer = document.createElement('container');
-        const secondDivs = document.createElement('div');
-        secondContainer.classList.add('secondContainer');
-        container.append(secondContainer);
-        secondContainer.append(secondDivs);
-    });
-} 
-getResult();
